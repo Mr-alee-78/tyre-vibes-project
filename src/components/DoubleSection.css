@@ -1,0 +1,240 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700&display=swap');
+
+.ds-section {
+  background-color: #ffffff;
+  padding: 100px ;
+  display: flex;
+  justify-content: center;
+  font-family: 'Sora', sans-serif;
+  
+}
+
+.ds-container {
+  display: flex;
+  gap: 30px;
+  max-width: 1400px;
+}
+
+.ds-card {
+       flex: 1;
+    height: 660px;
+    border-radius: 30px;
+    position: relative;
+    overflow: hidden;
+    padding: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
+    width: 1400px;
+}
+
+/* Backgrounds with Overlays */
+.ds-garage-bg {
+ background:url('../assets/How-left.png')center/cover no-repeat;
+}
+
+.ds-tire-bg {
+
+  background: url('../assets/How-right.png') center/cover no-repeat;
+}
+
+.ds-content {
+  position: relative;
+  z-index: 10;
+  max-width: 420px;
+}
+
+.ds-label {
+  color: #f06449;
+  font-weight: 600;
+  font-size: 16px;
+  /* text-transform: uppercase; */
+  letter-spacing: 1px;
+}
+
+.ds-title {
+     color: white;
+    font-size: 34px;
+    font-weight: 500;
+    margin: 20px 0;
+    line-height: 1.1;
+}
+
+.ds-subtitle {
+  color: white;
+  font-size: 18px;
+  margin-bottom: 30px;
+  opacity: 0.9;
+  line-height: 1.4;
+}
+
+.ds-list {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 30px;
+}
+
+.ds-list li {
+  color: white;
+  font-size: 17px;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+}
+
+/* White square bullets */
+.ds-list li::before {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background-color: white;
+  margin-right: 15px;
+  flex-shrink: 0;
+}
+
+.ds-footer-text {
+  color: #ccc;
+  font-size: 16px;
+  margin-bottom: 40px;
+}
+
+.ds-btn {
+  width: fit-content;
+  padding: 18px 40px;
+  font-size: 18px;
+  position: absolute;
+    cursor: pointer;
+    bottom: -170px;
+}
+
+/* --- THE HAND IMAGES --- */
+.ds-hand-img-left {
+  position: absolute;
+  bottom: 0;
+  right: -20px;
+  height: 75%; /* Adjust based on your PNG size */
+  width: auto;
+  z-index: 5;
+  pointer-events: none;
+  filter: drop-shadow(-20px 20px 40px rgba(0,0,0,0.5));
+}
+
+.ds-hand-img-right{
+  height: 90%;
+   position: absolute;
+  bottom: 0;
+  right: -20px;
+  width: auto;
+  z-index: 5;
+  pointer-events: none;
+  filter: drop-shadow(-20px 20px 40px rgba(0,0,0,0.5));
+
+}
+/* Fix for secondary button in right card */
+.btn-secondary {
+  background: transparent;
+  border: 1px solid white;
+  color: white;
+  border-radius: 50px;
+  font-weight: 600;
+  cursor: pointer;
+    bottom: -143px;
+
+
+}
+
+/* ============================================================
+   RESPONSIVE DESIGN: DOUBLE SECTION (GARAGE & TIRE)
+   ============================================================ */
+
+/* --- TABLET VIEW (Under 1024px) --- */
+@media (max-width: 1024px) {
+ 
+  
+
+  .ds-title {
+    font-size: 28px;
+  }
+
+  .ds-hand-img-left, .ds-hand-img-right {
+    height: 60%; /* Shrink hands for tablet */
+  }
+  
+  .ds-container {
+    flex-direction: column; /* Stacks Garage on top of Tire */
+    align-items: center;
+    gap: 40px;
+  }
+
+  .ds-card {
+    width: 100% !important; /* Fixes the width overflow */
+    max-width: 600px; /* Keeps them from getting too wide on tablet */
+    height: auto;
+    min-height: 650px;
+  }
+}
+
+
+/* --- MOBILE VIEW (Under 768px) --- */
+@media (max-width: 768px) {
+  .ds-section {
+    padding: 60px 15px;
+    overflow: hidden;
+  }
+
+  /* 1. STACK CARDS VERTICALLY */
+  .ds-container {
+    flex-direction: column;
+    gap: 25px;
+  }
+
+  .ds-card {
+    width: 100% !important; /* Force full width */
+    height: auto;           /* Let card grow with text */
+    min-height: 580px;      /* Ensure space for the hand image */
+    padding: 35px 25px;
+    border-radius: 20px;
+  }
+
+  .ds-content {
+    max-width: 100%;
+  }
+
+  .ds-title {
+    font-size: 26px;
+  }
+
+  .ds-subtitle {
+    font-size: 15px;
+    margin-bottom: 20px;
+  }
+
+  .ds-list li {
+    font-size: 14px;
+    margin-bottom: 12px;
+  }
+
+  /* 2. FIX BUTTONS FOR MOBILE */
+  /* Remove absolute positioning so they don't fly off the screen */
+  .ds-btn, .btn-secondary {
+    position: relative !important; 
+    bottom: 0 !important;
+    margin-top: 30px;
+    width: 100%; /* Full width for easy clicking */
+    text-align: center;
+    padding: 15px;
+    font-size: 16px;
+    display: block;
+  }
+
+  /* 3. SHRINK HAND IMAGES */
+  .ds-hand-img-left, 
+  .ds-hand-img-right {
+    height: 40%; /* Small enough to fit the corner without covering text */
+    right: -10px;
+    bottom: -10px;
+    opacity: 0.8;
+  }
+}

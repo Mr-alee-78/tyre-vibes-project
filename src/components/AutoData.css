@@ -1,0 +1,240 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&display=swap');
+
+.ad-section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  /* UPDATED: Darker gradient on the left (95% opacity) to make the red glow and white text stand out */
+  background: url('../assets/Auto-bg.png') center/cover no-repeat;
+  font-family: 'Sora', sans-serif;
+}
+
+.ad-container {
+  display: flex;
+  width: 100%;
+  padding: 0 10%;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ad-left {
+  flex: 1;
+  z-index: 10;
+}
+
+.ad-label {
+  color: white;
+  font-weight: 600;
+  font-size: 15px;
+  margin-bottom: 12px;
+  display: block;
+}
+
+.ad-title {
+  color: white;
+  font-size: 58px;
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 25px;
+  letter-spacing: -1.5px;
+}
+
+.ad-subtitle {
+  color: white;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.ad-list {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 25px;
+}
+
+.ad-list li {
+  color: #eeeeee;
+  font-size: 18px;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  font-weight: 300;
+}
+
+.ad-list li::before {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background-color: white;
+  margin-right: 15px;
+}
+
+.ad-footer {
+  color: #888888;
+  font-size: 16px;
+  margin-bottom: 40px;
+}
+
+.ad-btn {
+  background-color: #f06449; /* Coral color */
+  border: none;
+  padding: 18px 45px;
+  font-size: 18px;
+  color: white;
+  border-radius: 50px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: 'Sora', sans-serif;
+}
+
+/* --- THE 3D PHONE AREA --- */
+
+.ad-right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  perspective: 1200px; 
+}
+
+.ad-phone-3d {
+  width: 520px;
+  height: auto;
+  z-index: 5;
+  /* Deep shadow to add depth against the glow */
+  filter: drop-shadow(-40px 50px 70px rgba(0,0,0,0.9));
+}
+
+/* --- UPDATED: CINEMATIC GLOW EFFECT --- */
+.ad-glow-effect {
+  position: absolute;
+  width: 700px;  /* Made it larger */
+  height: 700px;
+  background: radial-gradient(circle, rgba(255, 44, 2, 1) 0%, transparent 75%);
+  filter: blur(70px); 
+  opacity: 0.9; /* Increased from 0.6 */ /* Keeps the glow atmospheric and not too solid */
+
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+/* ============================================================
+   RESPONSIVE DESIGN: AUTO DATA SECTION
+   ============================================================ */
+
+/* --- TABLET VIEW (Under 1024px) --- */
+@media (max-width: 1024px) {
+  .ad-title {
+    font-size: 42px;
+  }
+  
+ 
+  
+  .ad-container {
+    flex-direction: column;
+    text-align: center; /* Centers text to remove right-side gap */
+    align-items: center;
+    padding: 60px 5%;
+  }
+
+  .ad-left {
+    width: 100%;
+    margin-bottom: 40px;
+    padding: 0; /* Removes any side padding causing gaps */
+  }
+
+  .ad-list li {
+    justify-content: center; /* Centers list items */
+  }
+
+  .ad-right {
+    width: 100%;
+    display: flex;
+    justify-content: center; /* Centers the 3D phone */
+  }
+
+  .ad-phone-3d {
+    width: 400px; /* Adjust size to fit tablet */
+    margin: 0 auto;
+  }
+
+}
+
+/* --- MOBILE VIEW (Under 768px) --- */
+@media (max-width: 768px) {
+  .ad-section {
+    height: auto;
+    width: 100%;
+ /* Let section grow with content */
+    min-height: 100vh;
+    padding: 80px 0;
+    /* Change gradient to bottom so text is readable when stacked */
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.95) 40%, rgba(0, 0, 0, 0.4) 100%), 
+                url('../assets/Auto-bg.png') center/cover no-repeat;
+  }
+
+  .ad-container {
+    flex-direction: column; /* STACK CONTENT */
+    text-align: left;
+    align-items: flex-start;
+  }
+
+  .ad-left {
+    width: 100%;
+    margin-bottom: 50px;
+  }
+
+  .ad-title {
+    font-size: 32px; /* Scale down big header */
+    line-height: 1.2;
+  }
+
+  .ad-subtitle {
+    font-size: 18px;
+  }
+
+  .ad-list li {
+    font-size: 15px;
+  }
+
+  .ad-footer {
+    font-size: 14px;
+    margin-bottom: 30px;
+  }
+
+  .ad-btn {
+    width: 100%; /* Full width button for mobile */
+    padding: 16px;
+  }
+
+  /* 3. Handle the 3D Phone & Glow Area */
+  .ad-right {
+    width: 100%;
+    perspective: 1000px; /* Keep 3D effect */
+    display: flex;
+    justify-content: center;
+    padding: 40px 0;
+  }
+
+  .ad-phone-3d {
+    width: 280px; /* Fit perfectly on mobile width */
+    margin: 0 auto;
+    /* Optional: reduce tilt slightly for mobile readability */
+    /* transform: rotateY(-15deg) rotateX(5deg) rotateZ(-5deg); */
+  }
+
+  /* Fix the Glow: Large glow causes horizontal scroll, so we shrink it */
+  .ad-glow-effect {
+    width: 320px; 
+    height: 320px;
+    filter: blur(60px); /* Adjust blur for smaller size */
+    opacity: 0.8;
+  }
+}

@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700&display=swap');
+
+.contact-section {
+  background-color: #ffffff; /* Clean white background */
+  padding: 100px 0 150px 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  font-family: 'Sora', sans-serif;
+}
+
+.contact-container {
+  width: 90%;
+  max-width: 900px; /* Centered narrow width for the form */
+}
+
+.contact-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.contact-label {
+  color: #f06449;
+  font-weight: 600;
+  font-size: 16px;
+  text-transform: capitalize;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.contact-title {
+  color: #000000;
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.contact-subtitle {
+  color: #666666;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+/* Form Styling */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Two equal columns */
+  gap: 20px;
+}
+
+.form-input, .form-textarea {
+  background-color: #f2f2f2; /* Light gray background from design */
+  border: none;
+  border-radius: 12px;
+  padding: 20px 25px;
+  font-family: 'Sora', sans-serif;
+  font-size: 16px;
+  outline: none;
+  transition: all 0.3s ease;
+  color: #333;
+}
+
+.form-textarea {
+  min-height: 200px;
+  resize: vertical;
+}
+
+/* Placeholder color matching the design */
+.form-input::placeholder, .form-textarea::placeholder {
+  color: #999999;
+}
+
+.form-input:focus, .form-textarea:focus {
+  background-color: #ededed;
+  box-shadow: 0 0 0 2px #f0644933; /* Subtle coral glow on focus */
+}
+
+/* Centered Submit Button */
+.form-button-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.contact-submit-btn {
+  background-color: #f06449;
+  color: white;
+  border: none;
+  padding: 18px 60px;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 10px 20px rgba(240, 100, 73, 0.2);
+  font-family: 'Sora', sans-serif;
+}
+
+/* Responsive: Stack inputs on mobile */
+@media (max-width: 600px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+  .contact-title {
+    font-size: 32px;
+  }
+}

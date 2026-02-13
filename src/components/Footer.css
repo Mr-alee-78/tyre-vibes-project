@@ -1,0 +1,273 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700&display=swap');
+
+.footer-section {
+  background-color: #050505; /* Deep black background */
+  padding: 100px 0 40px 0;
+  width: 100%;
+  position: relative;
+  font-family: 'Sora', sans-serif;
+  color: white;
+  overflow: hidden;
+      height: 790px;
+
+}
+
+.footer-container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  gap: 80px;
+  padding-bottom: 80px;
+}
+
+/* --- LEFT SIDE --- */
+.footer-left {
+  flex: 1;
+}
+
+.footer-logo {
+  height: 60px;
+  margin-bottom: 40px;
+}
+
+.footer-heading {
+  font-size: 44px;
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 50px;
+  letter-spacing: -1px;
+}
+
+.footer-nav ul {
+  display: flex;
+  list-style: none;
+  gap: 25px;
+  padding: 0;
+}
+
+.footer-nav li {
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  opacity: 0.8;
+  transition: opacity 0.3s;
+}
+
+.footer-nav li:hover {
+  opacity: 1;
+}
+
+/* --- RIGHT SIDE --- */
+.footer-right {
+  flex: 1.2;
+}
+
+.form-title {
+  font-size: 38px;
+  font-weight: 700;
+  margin-bottom: 30px;
+}
+
+.footer-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.footer-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.footer-form input, 
+.footer-textarea {
+  background-color: #1a1a1a; /* Dark input background */
+  border: none;
+  border-radius: 10px;
+  padding: 18px 20px;
+  color: white;
+  font-family: 'Sora', sans-serif;
+  font-size: 15px;
+  outline: none;
+}
+
+.footer-textarea {
+  min-height: 160px;
+  resize: none;
+}
+
+.footer-form input::placeholder, 
+.footer-textarea::placeholder {
+  color: #666;
+}
+
+.footer-submit-btn {
+  background-color: #f06449;
+  color: white;
+  border: none;
+  padding: 18px 40px;
+  border-radius: 50px;
+  font-size: 16px;
+  font-weight: 600;
+  width: fit-content;
+  margin-top: 15px;
+  cursor: pointer;
+}
+
+/* --- BOTTOM BAR --- */
+.footer-bottom {
+  width: 100%;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding-top: 40px;
+  margin-top: 40px;
+}
+
+.footer-bottom-content {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #555;
+  font-size: 14px;
+}
+
+.legal-links {
+  display: flex;
+  gap: 30px;
+}
+
+.legal-links span {
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.legal-links span:hover {
+  color: #888;
+}
+
+/* --- DECORATIVE RING --- */
+.footer-ring {
+      position: absolute;
+    bottom: -414px;
+    left: 31%;
+    /* transform: translateX(-50%); */
+    width: 650px;
+    opacity: 2.8;
+    z-index: 0;
+    pointer-events: none;
+}
+
+
+/* ============================================================
+   RESPONSIVE DESIGN: FOOTER SECTION
+   ============================================================ */
+
+/* --- TABLET VIEW (Under 1024px) --- */
+@media (max-width: 1024px) {
+  .footer-container {
+    gap: 40px;
+    padding-bottom: 50px;
+  }
+
+  .footer-heading {
+    font-size: 36px;
+  }
+
+  .footer-ring {
+    width: 450px; /* Shrink ring */
+    bottom: -250px;
+  }
+}
+
+/* --- MOBILE VIEW (Under 768px) --- */
+@media (max-width: 768px) {
+  .footer-section {
+    height: auto; /* IMPORTANT: Remove the fixed 790px height */
+    padding: 60px 0 20px 0;
+  }
+
+  .footer-container {
+    flex-direction: column; /* STACK BRANDING ON TOP OF FORM */
+    gap: 50px;
+    width: 90%;
+  }
+
+  /* 1. Brand Side */
+  .footer-left {
+    text-align: left;
+  }
+
+  .footer-logo {
+    height: 45px;
+    margin-bottom: 25px;
+  }
+
+  .footer-heading {
+    font-size: 28px;
+    margin-bottom: 30px;
+    line-height: 1.2;
+  }
+
+  .footer-nav ul {
+    flex-wrap: wrap; /* Allow links to wrap to second line */
+    gap: 15px;
+  }
+
+  .footer-nav li {
+    font-size: 14px;
+  }
+
+  /* 2. Form Side */
+  .form-title {
+    font-size: 26px;
+    margin-bottom: 20px;
+  }
+
+  .footer-form-grid {
+    grid-template-columns: 1fr; /* FORCE 1 COLUMN FOR INPUTS */
+    gap: 12px;
+  }
+
+  .footer-form input, 
+  .footer-textarea {
+    padding: 15px;
+    font-size: 14px;
+  }
+
+  .footer-submit-btn {
+    width: 100%; /* Full width button for mobile */
+    padding: 16px;
+    font-size: 16px;
+  }
+
+  /* 3. Bottom Bar */
+  .footer-bottom {
+    margin-top: 60px;
+    padding-bottom: 40px;
+  }
+
+  .footer-bottom-content {
+    flex-direction: column; /* STACK COPYRIGHT ON TOP OF LEGAL */
+    gap: 20px;
+    text-align: center;
+  }
+
+  .legal-links {
+    justify-content: center;
+    gap: 20px;
+  }
+
+  /* 4. Reposition Decorative Ring */
+  .footer-ring {
+    width: 300px;
+    bottom: -150px;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0.4; /* Fade it more for mobile */
+  }
+}

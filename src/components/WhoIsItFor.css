@@ -1,0 +1,219 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700&display=swap');
+
+.who-section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  font-family: 'Sora', sans-serif;
+  overflow: hidden;
+}
+
+/* Gradient overlay: Solid dark on left, transparent on right */
+.who-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.95) 20%, rgba(0, 0, 0, 0.4) 100%);
+  z-index: 1;
+}
+
+.who-container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  padding: 0 8%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.who-left {
+  flex: 1;
+  max-width: 600px;
+}
+
+.who-label {
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.who-title {
+     color: white;
+    font-size: 51px;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.who-subtitle {
+  color: white;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 30px;
+}
+
+.perfect-for {
+  color: #ffffff;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.who-list {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 30px;
+}
+
+.who-list li {
+  color: #dddddd;
+  font-size: 18px;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+}
+
+/* The small white square bullets */
+.who-list li::before {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background-color: white;
+  margin-right: 15px;
+  flex-shrink: 0;
+}
+
+.who-footer-note {
+  color: #aaaaaa;
+  font-size: 18px;
+  margin-bottom: 40px;
+}
+
+.who-btn {
+  padding: 18px 45px;
+  font-size: 18px;
+}
+
+/* --- PLAY BUTTON STYLING --- */
+.who-center {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-right: 20%;
+}
+
+.play-button {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  background-color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 0 40px rgba(255, 255, 255, 0.3);
+}
+
+.play-icon {
+  width: 0;
+  height: 0;
+  border-top: 15px solid transparent;
+  border-bottom: 15px solid transparent;
+  border-left: 25px solid #000; /* Black triangle */
+  margin-left: 5px;
+}
+
+.play-pulse {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 2px solid white;
+  border-radius: 50%;
+}
+
+/* ============================================================
+   RESPONSIVE DESIGN: WHO IS IT FOR SECTION
+   ============================================================ */
+
+@media (max-width: 768px) {
+  .who-section {
+    height: auto; /* Let content determine height */
+    min-height: 100vh;
+    padding: 80px 0;
+  }
+
+  /* Change overlay to darken the whole screen for vertical text */
+  .who-overlay {
+    background: linear-gradient(to bottom, 
+      rgba(0, 0, 0, 0.9) 0%, 
+      rgba(0, 0, 0, 0.7) 100%
+    );
+  }
+
+  .who-container {
+    flex-direction: column; /* STACK CONTENT */
+    text-align: left;
+    gap: 50px; /* Space between text and play button */
+  }
+
+  .who-left {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .who-label {
+    font-size: 14px;
+  }
+
+  .who-title {
+    font-size: 32px; /* Scale down heading */
+    line-height: 1.2;
+  }
+
+  .who-subtitle {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+
+  .who-list li {
+    font-size: 15px; /* Slightly smaller text */
+  }
+
+  .who-footer-note {
+    font-size: 14px;
+    margin-bottom: 30px;
+  }
+
+  .who-btn {
+    width: 100%; /* Full width button for thumbs */
+    padding: 16px;
+  }
+
+  /* 3. Handle the Play Button Area */
+  .who-center {
+    width: 100%;
+    padding: 40px 0;
+    order: 2; /* Ensures button stays below text */
+  }
+
+  .play-button {
+    width: 80px;  /* Slightly smaller button */
+    height: 80px;
+  }
+
+  .play-icon {
+    border-left: 20px solid #000;
+    border-top: 12px solid transparent;
+    border-bottom: 12px solid transparent;
+  }
+}

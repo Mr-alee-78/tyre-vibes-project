@@ -1,0 +1,303 @@
+/* 1. IMPORT SORA FONT */
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.left-ani {
+  position: absolute;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Container & Background */
+.hero-container {
+  background: radial-gradient(circle at 70% 30%, rgba(240, 100, 73, 0.15) 0%, #050505 100%);
+  background-color: #050505;
+  color: white;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden; /* CRITICAL: Stops the white space/horizontal scroll */
+  overflow-y: hidden;
+  font-family: 'Sora', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* --- NAVBAR --- */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 8%;
+  z-index: 100;
+}
+
+.logo img { 
+  height: 65px;
+  width: auto;
+  padding-top: 5px;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+}
+
+.nav-links li {
+  font-size: 15px;
+  font-weight: 300;
+  color: #ffffff;
+  opacity: 0.7;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.nav-links li.active, .nav-links li:hover { 
+  opacity: 1; 
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Stylish Dropdown */
+.custom-select-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.styled-select {
+  appearance: none;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: white;
+  padding: 10px 35px 10px 15px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-family: 'Sora', sans-serif;
+  cursor: pointer;
+  outline: none;
+}
+
+.select-arrow {
+  position: absolute;
+  right: 12px;
+  color: #f06449;
+  pointer-events: none;
+  font-size: 14px;
+}
+
+.btn-nav-download {
+  background: #f06449;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 50px;
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* --- HERO CONTENT --- */
+.hero-content {
+  display: flex;
+  flex: 1;
+  padding: 0 8%;
+  align-items: center;
+  position: relative;
+}
+
+.hero-left {
+  flex: 1.2;
+  z-index: 5;
+  max-width: 650px;
+}
+
+.hero-left h1 {
+  font-size: 47px;
+  line-height: 1.1;
+  font-weight: 600;
+  color: #FFFFFF;
+  letter-spacing: -1px;
+  margin-bottom: 36px;
+}
+
+.hero-left p {
+  font-size: 18px;
+  color: #ffffff;
+  margin-bottom: 40px;
+  line-height: 1.6;
+}
+
+.hero-btns {
+  display: flex;
+  gap: 20px;
+}   
+
+.btn-primary, .btn-secondary {
+  padding: 18px 38px;
+  border-radius: 50px;
+  font-size: 17px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-primary { background: #f06449; border: none; color: white; }
+.btn-secondary { background: transparent; border: 1px solid rgba(255,255,255,0.4); color: white; }
+
+/* --- THE PHONES & VIDEO (Desktop) --- */
+.hero-right {
+  flex: 1.5;
+  position: relative;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+}
+
+.phone-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.back-phone-container {
+  position: absolute;
+  left: 40px;
+  bottom: -50px;
+  height: 85vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: rotate(-12deg);
+}
+
+.phone-video {
+  position: absolute;
+  width: 64%;
+  height: 88%;
+  object-fit: cover;
+  border-radius: 50px;
+  z-index: 1;
+  left: 95px;
+  transform: rotate(351deg);
+}
+
+.phone-img.back-phone {
+  height: 100%;
+  width: auto;
+  opacity: 0.5;
+  position: relative;
+  bottom: 0;
+}
+
+.front-phone {
+  position: absolute;
+  height: 90vh;
+  width: auto;
+  right: -103px;
+  bottom: -40px;
+  z-index: 10;
+  transform: rotate(-12deg);
+  filter: drop-shadow(-20px 20px 50px rgba(0,0,0,0.5));
+}
+
+/* ============================================================
+   RESPONSIVE DESIGN (FIXED EMPTY SPACE & VIDEO)
+   ============================================================ */
+
+@media (max-width: 1024px) {
+  .hero-left h1 { font-size: 40px; }
+  .front-phone { left: -150px;
+  z-index: 0; }
+}
+
+.back-phone-container{
+  z-index: 0;
+}
+
+@media (max-width: 768px) {
+  .hero-container {
+    height: auto;
+    min-height: 100vh;
+    overflow-y: auto;
+    overflow: hidden;
+  }
+
+  .nav-links { display: none; }
+
+  .hero-content {
+    flex-direction: column;
+    padding: 100px 5% 40px 5%;
+    text-align: center;
+  }
+
+  .hero-left {
+    max-width: 100%;
+    margin-bottom: 30px;
+  }
+
+  .hero-left h1 { font-size: 28px; margin-bottom: 20px; }
+  .hero-left p { font-size: 15px; margin-bottom: 30px; }
+  .hero-btns { flex-direction: column; width: 100%; gap: 12px; }
+  .btn-primary, .btn-secondary { width: 100%; padding: 15px; }
+
+  /* FIXING THE PHONES CENTERING */
+  .hero-right {
+    height: 480px;
+    width: 100vw; /* Ensure it spans full viewport width */
+    margin-left: -5%; /* Counteract container padding to center properly */
+    justify-content: center;
+    align-items: flex-end;
+  }
+
+  .phone-wrapper {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      position: relative;
+  }
+
+  /* Centering logic: Anchor both to 50% and translateX them into a sandwich */
+  .back-phone-container {
+        height: 54vh;
+    left: -16%;
+    transform: translateX(-75%) rotate(-8deg);
+    bottom: -40px;
+    z-index: 0;
+  }
+
+  .front-phone {
+        height: 60vh;
+    right: auto;
+    left: 44%;
+    transform: translateX(-20%) rotate(-8deg);
+    bottom: -41px;
+    z-index: 2;
+  }
+
+  /* Adjusting Video for the smaller mobile phone scale */
+  .phone-video {
+        width: 64%;
+    height: 103%;
+    left: 16%;
+    transform: rotate(
+352deg);
+    /* z-index: -4; */
+    border-radius: 37px;
+    bottom: -42px;
+  }
+  .left-ani img{
+        width: 300px;
+
+  }
+}
