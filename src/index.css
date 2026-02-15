@@ -2,3 +2,17 @@
   margin: 0;
   padding: 0;
 }
+section {
+  scroll-margin-top: 50px; /* Adjust this number to change where the scroll stops */
+}html {
+  scroll-behavior: smooth;
+}
+
+/* Optional: Make sure links don't look like blue underlined text */
+.nav-links a {
+  text-decoration: none;
+  color: inherit; /* Keeps your white/grey colors */
+  display: block;
+  width: 100%;
+  height: 100%;
+}

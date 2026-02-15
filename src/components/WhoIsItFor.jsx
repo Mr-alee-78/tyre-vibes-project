@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { useLanguage } from '../LanguageContext';
 
 // ASSETS
-import garageCar from '../assets/who-bg.png'; 
+import garageCar from '../assets/who-bg.gif'; 
 
 const WhoIsItFor = () => {
   const { t } = useLanguage();

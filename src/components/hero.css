@@ -74,11 +74,29 @@
   align-items: center;
 }
 
+/* Styles the options inside the dropdown */
+.styled-select option {
+  background-color: rgb(255, 255, 255); /* Solid dark background */
+  color: rgb(6, 6, 6);              /* White text */
+  padding: 10px;
+  font-family: 'Sora', sans-serif;
+}
+
+/* Fixes the blue highlight in some browsers */
+.styled-select:focus {
+  outline: none;
+  border:none;
+}
+
+/* Optional: Styles the dropdown when it is "open" on some systems */
+.styled-select::-ms-expand {
+  display: none;
+}
+
 .styled-select {
   appearance: none;
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: transparent;
+  /* backdrop-filter: blur(10px); */
   color: white;
   padding: 10px 35px 10px 15px;
   border-radius: 12px;
@@ -91,7 +109,7 @@
 .select-arrow {
   position: absolute;
   right: 12px;
-  color: #f06449;
+  color: #ffffff;
   pointer-events: none;
   font-size: 14px;
 }
@@ -300,4 +318,30 @@
         width: 300px;
 
   }
+}
+
+/* --- ADD ONLY THIS TO YOUR hero.css --- */
+
+
+/* Ensure mobile shows full text since scrolling is faster */
+@media (max-width: 768px) {
+  .apple-text-fill {
+    background-size: 100% 100% !important;
+  }
+}
+.apple-text-fill {
+  /* This makes the actual text transparent so the background shows through */
+  -webkit-text-fill-color: transparent; 
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  /* This is the 'Ghost' color behind the fill */
+  background-color: rgba(255, 255, 255, 0.15); 
+  
+  /* This is the 'Liquid' color that fills */
+  background-image: linear-gradient(90deg, #ffffff, #ffffff);
+  background-repeat: no-repeat;
+  
+  background-size: 0% 100%; 
+  display: inline-block;
 }

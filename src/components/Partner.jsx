@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import './Partner.css';
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { useLanguage } from '../LanguageContext';
 
 // ASSETS
@@ -10,6 +10,22 @@ import bgPattern from '../assets/bg-pattern.png';
 
 const Partner = () => {
   const { t } = useLanguage();
+
+  // --- SCROLL TRACKING SETUP ---
+  const titleRef = useRef(null);
+  const descRef = useRef(null);
+
+  const { scrollYProgress: titleScroll } = useScroll({
+    target: titleRef,
+    offset: ["start 0.9", "start 0.5"]
+  });
+  const titleFill = useTransform(titleScroll, [0, 1], ["0% 100%", "100% 100%"]);
+
+  const { scrollYProgress: descScroll } = useScroll({
+    target: descRef,
+    offset: ["start 0.9", "start 0.6"]
+  });
+  const descFill = useTransform(descScroll, [0, 1], ["0% 100%", "100% 100%"]);
 
   return (
     <section className="partner-section">
@@ -30,10 +46,25 @@ const Partner = () => {
 
         <div className="partner-left">
           <span className="partner-label">{t.partnerLabel}</span>
-          <motion.h1 key={t.partnerTitle} className="partner-title">
+          
+          {/* --- ANIMATED FILL TITLE --- */}
+          <motion.h1 
+            ref={titleRef}
+            key={t.partnerTitle} 
+            className="partner-title apple-text-fill-partner"
+            style={{ backgroundSize: titleFill }}
+          >
             {t.partnerTitle}
           </motion.h1>
-          <p className="partner-desc">{t.partnerDesc}</p>
+
+          {/* --- ANIMATED FILL DESCRIPTION --- */}
+          <motion.p 
+            ref={descRef}
+            className="partner-desc apple-text-fill-partner"
+            style={{ backgroundSize: descFill }}
+          >
+            {t.partnerDesc}
+          </motion.p>
 
           <h4 className="why-title">{t.whyTitle}</h4>
           <ul className="partner-list">

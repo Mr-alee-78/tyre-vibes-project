@@ -1,4 +1,4 @@
-import Hero from './components/hero'; // Ensure the path is correct
+import Hero from './components/hero'; 
 import Problem from './components/Problem';
 import Solution from './components/solution';
 import How from './components/HowItWorks'
@@ -10,19 +10,21 @@ import WhoIsItFor from './components/WhoIsItFor'
 import FinalCTA from './components/FinalCTA'
 import Footer from './components/Footer'
 
-
 function App() {
   return (
     <div className="App">
-      <Hero />
+      {/* Added IDs to match the Hero navigation links */}
+      <section id="home"><Hero /></section>
       <Problem />
       <Solution />
-      <How/>
-      <Double/>
-      <AutoData/>
-      <Partner/>
+      <section id="how-it-works"><How/></section>
+      <section id="features">
+        <Double/>
+        <AutoData/>
+      </section>
+      <section id="partners"><Partner/></section>
       <Contact/>
-      <WhoIsItFor/>
+      <section id="who-its-for"><WhoIsItFor/></section>
       <FinalCTA/>
       <Footer/> 
     </div>

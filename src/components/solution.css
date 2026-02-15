@@ -225,3 +225,17 @@
 
   }
 }
+
+.apple-text-fill-sol {
+  -webkit-text-fill-color: transparent; 
+  -webkit-background-clip: text;
+  background-clip: text;
+  background-color: rgba(255, 255, 255, 0.15); 
+  background-image: linear-gradient(90deg, #ffffff, #ffffff);
+  background-repeat: no-repeat;
+  background-size: 0% 100%; 
+  transition: background-size 0.1s linear;
+}
+@media (max-width: 768px) {
+  .apple-text-fill-sol { background-size: 100% 100% !important; }
+}
